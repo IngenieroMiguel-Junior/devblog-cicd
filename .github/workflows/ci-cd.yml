@@ -44,7 +44,7 @@ jobs:
     # Paso 4: Instalar dependencias
     - name:  Install dependencies
       run: |
-        python -m pip install --upgrade pip
+       
         pip install -r requirements.txt
     
     # Paso 5: Ejecutar tests con cobertura

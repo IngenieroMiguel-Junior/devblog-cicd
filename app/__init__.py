@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from config import Config
+from app.routes import main
 
 def create_app():   
     # Crear la instancia de Flask
@@ -9,7 +10,6 @@ def create_app():
     app.config.from_object(Config)
     
     # Registrar las rutas (blueprints en aplicaciones más grandes)
-    from app.routes import main
     app.register_blueprint(main)
     
     # Configurar manejo de errores personalizado

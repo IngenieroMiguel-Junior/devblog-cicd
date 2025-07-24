@@ -81,6 +81,9 @@ COPY . .
 RUN adduser --disabled-password --gecos '' appuser && \ 
     chown -R appuser:appuser /app 
 USER appuser 
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:$PORT/api/health || exit 1
  
 # ================================ 
 # ETAPA 7: CONFIGURACIÓN DE RED 
@@ -89,7 +92,7 @@ USER appuser
 # Exponer el puerto 5000 (puerto por defecto de Flask) 
 # Esto es documentativo - le dice a otros desarrolladores qué puerto usar 
 # No abre automáticamente el puerto (eso se hace al ejecutar el contenedor) 
-EXPOSE 5000 
+EXPOSE $PORT
  
 # ================================
 # ETAPA 8: COMANDO DE INICIO 

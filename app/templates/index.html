@@ -15,7 +15,10 @@
       <div class="card-body">
         <!-- Título del post -->
         <h2 class="card-title">
-          <a href="{{ url_for('main.view_post', post_id=post.id) }}" class="text-decoration-none">
+          <a
+            href="{{ url_for('main.view_post', post_id=post.id) }}"
+            class="text-decoration-none"
+          >
             {{ post.title }}
           </a>
         </h2>
@@ -35,7 +38,10 @@
         <p class="card-text">{{ post.summary }}</p>
 
         <!-- Botón para leer más -->
-        <a href="{{ url_for('main.view_post', post_id=post.id) }}" class="btn btn-outline-primary">
+        <a
+          href="{{ url_for('main.view_post', post_id=post.id) }}"
+          class="btn btn-outline-primary"
+        >
           <i class="fas fa-book-open"></i> Leer más
         </a>
       </div>

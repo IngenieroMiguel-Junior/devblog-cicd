@@ -15,8 +15,16 @@
             <label for="title" class="form-label">
               <i class="fas fa-heading"></i> Título del Post *
             </label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Escribe un título atractivo..."
-              value="{{ form_data.title if form_data else '' }}" maxlength="200" required />
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              placeholder="Escribe un título atractivo..."
+              value="{{ form_data.title if form_data else '' }}"
+              maxlength="200"
+              required
+            />
             <div class="form-text">
               Máximo 200 caracteres. Sé descriptivo y atractivo.
             </div>
@@ -27,8 +35,14 @@
             <label for="author" class="form-label">
               <i class="fas fa-user"></i> Autor
             </label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Tu nombre (opcional)"
-              value="{{ form_data.author if form_data else '' }}" />
+            <input
+              type="text"
+              class="form-control"
+              id="author"
+              name="author"
+              placeholder="Tu nombre (opcional)"
+              value="{{ form_data.author if form_data else '' }}"
+            />
             <div class="form-text">
               Si no especificas un autor, se usará "Anónimo".
             </div>
@@ -39,10 +53,18 @@
             <label for="content" class="form-label">
               <i class="fas fa-edit"></i> Contenido del Post *
             </label>
-            <textarea class="form-control" id="content" name="content" rows="12" placeholder="Escribe tu post aquí...
+            <textarea
+              class="form-control"
+              id="content"
+              name="content"
+              rows="12"
+              placeholder="Escribe tu post aquí...
                                   Puedes usar párrafos separados por líneas en blanco.
-                                  ¡Comparte tus ideas, experiencias o conocimientos!" required>
-{{ form_data.content if form_data else '' }}</textarea>
+                                  ¡Comparte tus ideas, experiencias o conocimientos!"
+              required
+            >
+{{ form_data.content if form_data else '' }}</textarea
+            >
             <div class="form-text">
               Usa párrafos separados por líneas en blanco para mejor
               legibilidad.
@@ -57,7 +79,11 @@
             <a href="{{ url_for('main.index') }}" class="btn btn-secondary">
               <i class="fas fa-times"></i> Cancelar
             </a>
-            <button type="button" class="btn btn-outline-info" onclick="previewPost()">
+            <button
+              type="button"
+              class="btn btn-outline-info"
+              onclick="previewPost()"
+            >
               <i class="fas fa-eye"></i> Vista Previa
             </button>
           </div>
@@ -144,13 +170,13 @@
                         </div>
                         <div class="content">
                             ${content
-        .split("\n\n")
-        .map((p) =>
-          p.trim()
-            ? `<p>${p.replace(/\n/g, "<br>")}</p>`
-            : ""
-        )
-        .join("")}
+                              .split("\n\n")
+                              .map((p) =>
+                                p.trim()
+                                  ? `<p>${p.replace(/\n/g, "<br>")}</p>`
+                                  : ""
+                              )
+                              .join("")}
                         </div>
                     </div>
                 </div>

@@ -8,8 +8,14 @@
         <div class="card-body">
           <form method="GET" action="{{ url_for('main.search') }}">
             <div class="input-group">
-              <input type="text" class="form-control form-control-lg" name="q"
-                placeholder="Buscar en títulos y contenido..." value="{{ query or '' }}" autofocus />
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                name="q"
+                placeholder="Buscar en títulos y contenido..."
+                value="{{ query or '' }}"
+                autofocus
+              />
               <button class="btn btn-primary" type="submit">
                 <i class="fas fa-search"></i> Buscar
               </button>
@@ -34,7 +40,10 @@
     <article class="card mb-3 shadow-sm">
       <div class="card-body">
         <h3 class="card-title">
-          <a href="{{ url_for('main.view_post', post_id=post.id) }}" class="text-decoration-none">
+          <a
+            href="{{ url_for('main.view_post', post_id=post.id) }}"
+            class="text-decoration-none"
+          >
             {{ post.title }}
           </a>
         </h3>
@@ -50,7 +59,10 @@
         <p class="card-text">{{ post.summary }}</p>
 
         <div class="d-flex gap-2">
-          <a href="{{ url_for('main.view_post', post_id=post.id) }}" class="btn btn-outline-primary btn-sm">
+          <a
+            href="{{ url_for('main.view_post', post_id=post.id) }}"
+            class="btn btn-outline-primary btn-sm"
+          >
             <i class="fas fa-book-open"></i> Leer completo
           </a>
         </div>
@@ -88,10 +100,16 @@
       </div>
       <div class="card-body">
         <div class="d-grid gap-2">
-          <a href="{{ url_for('main.search', q='DevOps') }}" class="btn btn-outline-secondary btn-sm">
+          <a
+            href="{{ url_for('main.search', q='DevOps') }}"
+            class="btn btn-outline-secondary btn-sm"
+          >
             DevOps
           </a>
-          <a href="{{ url_for('main.search', q='Docker') }}" class="btn btn-outline-secondary btn-sm">
+          <a
+            href="{{ url_for('main.search', q='Docker') }}"
+            class="btn btn-outline-secondary btn-sm"
+          >
             Docker
           </a>
         </div>

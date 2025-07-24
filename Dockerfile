@@ -29,6 +29,9 @@ LABEL version="1.0"
 # PYTHONDONTWRITEBYTECODE=1: Evita crear archivos .pyc (optimización) 
 ENV PYTHONUNBUFFERED=1 
 ENV PYTHONDONTWRITEBYTECODE=1 
+#agregar para produccion
+ENV FLASK_ENV=production
+ENV PORT=5000
  
 # Establecer el directorio de trabajo dentro del contenedor 
 # Todo el código de la aplicación estará en /app 
@@ -36,13 +39,19 @@ WORKDIR /app
  
 # ================================ 
 # ETAPA 4: INSTALACIÓN DE DEPENDENCIAS 
-# ================================ 
- 
+# ================================
+
 # Copiar requirements.txt PRIMERO (optimización de Docker layers) 
 # ¿Por qué copiar requirements.txt antes que el resto del código? 
 # - Docker usa capas (layers) para optimizar builds 
 # - Si solo cambia el código, no necesita reinstalar dependencias 
 # - Esto hace los builds mucho más rápidos 
+#
+#instalar para produccion
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt . 
  
 # Actualizar pip y instalar dependencias 
@@ -82,9 +91,9 @@ USER appuser
 # No abre automáticamente el puerto (eso se hace al ejecutar el contenedor) 
 EXPOSE 5000 
  
-# ================================ 
+# ================================
 # ETAPA 8: COMANDO DE INICIO 
 # ================================ 
 # Comando que se ejecuta cuando inicia el contenedor 
 # Inicia la aplicación Flask 
-CMD ["python", "app.py"]
+CMD ["python", "app.py"] 

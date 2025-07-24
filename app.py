@@ -1,3 +1,6 @@
+"""
+# app.py
+# Punto de entrada de la aplicación DevBlog"""
 from app import create_app
 from config import Config
 
@@ -13,11 +16,11 @@ if __name__ == '__main__':
     - No se ejecuta si importas este archivo desde otro lugar
     - Patrón estándar en Python
     """
-    
+
     print("Iniciando DevBlog...")
     print(f"Servidor corriendo en: http://{Config.HOST}:{Config.PORT}")
     print("Presiona Ctrl+C para detener el servidor")
-    
+
     # Iniciar el servidor Flask
     app.run(
         host=Config.HOST,      # 0.0.0.0 permite conexiones externas

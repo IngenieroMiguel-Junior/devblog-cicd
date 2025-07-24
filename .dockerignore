@@ -8,7 +8,7 @@ __pycache__/
 *.so 
 # Distribuciones / empaquetado 
 .Python 
-build/ 
+build/
 develop-eggs/ 
 dist/ 
 downloads/ 
@@ -53,8 +53,7 @@ venv.bak/
 .vscode/ 
  
 # PyCharm 
-.idea/ 
- 
+.idea/
 # Sublime Text 
 *.sublime-project 
 *.sublime-workspace 
@@ -98,7 +97,7 @@ coverage.xml
 # ================================ 
  
 # Documentación 
-docs/_build/ 
+docs/_build/
 README.md 
 *.md 
  
@@ -123,4 +122,4 @@ README.md
 # Docker 
 Dockerfile* 
 docker-compose* 
-.dockerignore
+.dockerignore 

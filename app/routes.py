@@ -1,6 +1,7 @@
 """
 Rutas para el blog personal DevBlog
 """
+from datetime import datetime
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from app.models import blog_storage, BlogPost
 from datetime import datetime
@@ -282,4 +283,13 @@ def api_health():
         'version': '1.0.0',
         'timestamp': datetime.now().isoformat(),
         'tests_passing': True
+    })
+@main.route('/api/health') 
+def api_health(): 
+    """API: Health check endpoint""" 
+    return jsonify({ 
+        'status': 'healthy', 
+        'version': '1.0.0', 
+        'timestamp': datetime.now().isoformat(), 
+        'tests_passing':True
     })
